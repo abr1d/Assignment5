@@ -16,3 +16,7 @@ sudo yum install munge munge-libs munge-devel -y
 #install rng tools, create a key
 sudo yum install rng-tools -y
 sudo rngd -r /dev/urandom
+
+#stop firewall
+sudo systemctl stop firewalld
+sudo systemctl disable firewalld
