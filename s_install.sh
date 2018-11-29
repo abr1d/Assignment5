@@ -20,3 +20,11 @@ sudo rngd -r /dev/urandom
 #stop firewall
 sudo systemctl stop firewalld
 sudo systemctl disable firewalld
+
+firewall-cmd --permanent --zone=public --add-port=6817/udp
+firewall-cmd --permanent --zone=public --add-port=6817/tcp
+firewall-cmd --permanent --zone=public --add-port=6818/tcp
+firewall-cmd --permanent --zone=public --add-port=6818/tcp
+firewall-cmd --permanent --zone=public --add-port=7321/tcp
+firewall-cmd --permanent --zone=public --add-port=7321/tcp
+firewall-cmd --reload
