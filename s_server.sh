@@ -42,3 +42,18 @@ sudo cp slurm-15.08.9-1.el7.centos.x86_64.rpm slurm-devel-15.08.9-1.el7.centos.x
 
 #install the RPMS
 sudo yum -y --nogpgcheck localinstall slurm-15.08.9-1.el7.centos.x86_64.rpm slurm-devel-15.08.9-1.el7.centos.x86_64.rpm slurm-munge-15.08.9-1.el7.centos.x86_64.rpm slurm-perlapi-15.08.9-1.el7.centos.x86_64.rpm slurm-plugins-15.08.9-1.el7.centos.x86_64.rpm slurm-sjobexit-15.08.9-1.el7.centos.x86_64.rpm slurm-sjstat-15.08.9-1.el7.centos.x86_64.rpm slurm-torque-15.08.9-1.el7.centos.x86_64.rpm
+
+#set some more services :)
+sudo systemctl enable slurmctld.service
+sudo systemctl start slurmctld.service
+sudo systemctl status slurmctld.service
+
+#setup dem files
+sudo mkdir /var/spool/slurmctld
+sudo chown slurm: /var/spool/slurmctld
+sudo chmod 755 /var/spool/slurmctld
+sudo touch /var/log/slurmctld.log
+sudo chown slurm: /var/log/slurmctld.log
+sudo touch /var/log/slurm_jobacct.log /var/log/slurm_jobcomp.log
+sudo chown slurm: /var/log/slurm_jobacct.log /var/log/slurm_jobcomp.log
+
