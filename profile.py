@@ -71,18 +71,18 @@ for i in range(6):
     node.addService(pg.Execute(shell="sh", command="sudo chmod 755 /local/repository/install_mpi.sh"))
     node.addService(pg.Execute(shell="sh", command="sudo /local/repository/install_mpi.sh"))
     node.addService(pg.Execute(shell="sh", command="sudo chmod 755 /local/repository/s_install.sh"))
-    ode.addService(pg.Execute(shell="sh", command="sudo chmod 755 /local/repository/s_server.sh"))
+    node.addService(pg.Execute(shell="sh", command="sudo chmod 755 /local/repository/s_server.sh"))
     
   elif i == 2: # storage
     node.addService(pg.Execute(shell="sh", command="sudo chmod 755 /local/repository/setup_storage.sh"))
     node.addService(pg.Execute(shell="sh", command="sudo /local/repository/setup_storage.sh"))
-    ode.addService(pg.Execute(shell="sh", command="sudo chmod 755 /local/repository/s_install.sh"))
+    node.addService(pg.Execute(shell="sh", command="sudo chmod 755 /local/repository/s_install.sh"))
     
   else: # compute
     node.addService(pg.Execute(shell="sh", command="sudo chmod 755 /local/repository/setup_compute.sh"))
     node.addService(pg.Execute(shell="sh", command="sudo /local/repository/setup_compute.sh"))
-    ode.addService(pg.Execute(shell="sh", command="sudo chmod 755 /local/repository/s_install.sh"))
-    ode.addService(pg.Execute(shell="sh", command="sudo chmod 755 /local/repository/s_compute.sh"))
+    node.addService(pg.Execute(shell="sh", command="sudo chmod 755 /local/repository/s_install.sh"))
+    node.addService(pg.Execute(shell="sh", command="sudo chmod 755 /local/repository/s_compute.sh"))
   
 # Print the RSpec to the enclosing page.
 pc.printRequestRSpec(request)
