@@ -15,3 +15,15 @@ sudo rpmbuild -ta slurm-15.08.9.tar.bz2
 
 #install the RPMS
 sudo yum -y --nogpgcheck localinstall slurm-15.08.9-1.el7.centos.x86_64.rpm slurm-devel-15.08.9-1.el7.centos.x86_64.rpm slurm-munge-15.08.9-1.el7.centos.x86_64.rpm slurm-perlapi-15.08.9-1.el7.centos.x86_64.rpm slurm-plugins-15.08.9-1.el7.centos.x86_64.rpm slurm-sjobexit-15.08.9-1.el7.centos.x86_64.rpm slurm-sjstat-15.08.9-1.el7.centos.x86_64.rpm slurm-torque-15.08.9-1.el7.centos.x86_64.rpm
+
+#sync those clocks!
+sudo systemctl enable slurmd.service
+sudo systemctl start slurmd.service
+sudo systemctl status slurmd.service
+
+#setup those files
+sudo mkdir /var/spool/slurmd
+sudo chown slurm: /var/spool/slurmd
+sudo chmod 755 /var/spool/slurmd
+sudo touch /var/log/slurmd.log
+sudo chown slurm: /var/log/slurmd.log
